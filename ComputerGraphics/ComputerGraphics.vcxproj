@@ -137,13 +137,17 @@
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="shader.cpp" />
+    <ClCompile Include="sphere.cpp" />
     <ClCompile Include="terrain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
     <ClInclude Include="perlin.h" />
     <ClInclude Include="shader.h" />
+    <ClInclude Include="sphere.h" />
+    <ClInclude Include="stb_truetype.h" />
     <ClInclude Include="terrain.h" />
+    <ClInclude Include="text.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="light_fragment.glsl" />
