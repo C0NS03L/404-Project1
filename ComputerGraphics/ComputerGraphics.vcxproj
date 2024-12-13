@@ -141,10 +141,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
+    <ClInclude Include="perlin.h" />
     <ClInclude Include="shader.h" />
     <ClInclude Include="terrain.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="light_fragment.glsl" />
+    <None Include="light_vertex.glsl" />
     <None Include="terrain_fragment.glsl" />
     <None Include="terrain_vertex.glsl" />
   </ItemGroup>

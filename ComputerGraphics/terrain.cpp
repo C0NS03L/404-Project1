@@ -51,15 +51,17 @@ void Terrain::generateTerrain(int width, int depth, float scale) {
     indices.clear();
 
     // Noise parameters
-    int octaves = 5;
-    float meshHeight = 32.0f; // Vertical scaling
-    float noiseScale = 64.0f; // Horizontal scaling
+    int octaves = 6; // Reduced octaves for less noise detail
+    float meshHeight = 15; // Vertical scaling for mountains
+    float noiseScale = 1000; // Horizontal scaling
     float persistence = 0.5f;
     float lacunarity = 2.0f;
 
     std::vector<float> noiseValues;
     std::vector<int> p = get_permutation_vector();
-    float amp = 0, freq, maxPossibleHeight = 0;
+    float maxPossibleHeight = 0;
+    float amp = 15.0f;
+    float freq = 15.0f;
 
     // Calculate the max possible height
     for (int i = 0; i < octaves; i++) {
@@ -76,7 +78,7 @@ void Terrain::generateTerrain(int width, int depth, float scale) {
             for (int i = 0; i < octaves; i++) {
                 float xSample = (x * scale) / noiseScale * freq;
                 float zSample = (z * scale) / noiseScale * freq;
-                float perlinValue = perlin_noise(xSample, zSample, p);
+                double perlinValue = perlin_noise(xSample, zSample, 0.5, p); // Pass z as 0.5 for 2D noise
                 noiseHeight += perlinValue * amp;
                 amp *= persistence;
                 freq *= lacunarity;
@@ -91,6 +93,9 @@ void Terrain::generateTerrain(int width, int depth, float scale) {
             float posX = x * scale;
             float posZ = z * scale;
             float height = noiseValues[x + z * (width + 1)] * meshHeight;
+
+            // Apply a transformation to create more varied terrain
+            height = std::pow(height, 3.0f); // Exaggerate the height difference
 
             // Vertex data: position (x, y, z), normal, texture coordinates
             vertices.push_back(posX);

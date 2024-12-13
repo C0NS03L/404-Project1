@@ -41,12 +41,21 @@
     <ClInclude Include="terrain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="perlin.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="terrain_fragment.glsl">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="terrain_vertex.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="light_vertex.glsl">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="light_fragment.glsl">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
