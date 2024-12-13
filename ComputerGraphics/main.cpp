@@ -65,8 +65,12 @@ int main() {
     Shader terrainShader("terrain_vertex.glsl", "terrain_fragment.glsl");
     Shader lightShader("light_vertex.glsl", "light_fragment.glsl");
 
+	std::cout << "Shader generated successfully\n" << std::endl;
+
     // Create terrain
     Terrain terrain(200, 200, 10.0f);
+
+    std::cout << "Terrain generated successfully\n" << std::endl;
 
     // Render loop
     while (!glfwWindowShouldClose(window)) {
