@@ -12,7 +12,9 @@ uniform mat4 view;
 uniform mat4 projection;
 
 void main() {
-    FragPos = vec3(model * vec4(aPos, 1.0));
+    vec3 flatPos = aPos;
+    flatPos.y *= 0.2; // Reduce bumpiness by scaling down the y-coordinate
+    FragPos = vec3(model * vec4(flatPos, 1.0));
     Normal = mat3(transpose(inverse(model))) * aNormal;
     TexCoords = aTexCoords;
     
